@@ -48,7 +48,8 @@ d.addEventListener("submit", async e => {
         headers: { "Content-type": "application/json; charset=utf-8" },
         body: JSON.stringify({
             nombre: e.target.name.value,
-            constelacion: e.target.constellation.value }) }
+            constelacion: e.target.constellation.value 
+        })}
 
         res = await fetch("http://localhost:3000/santos", options)
         json = await res.json()
@@ -59,4 +60,36 @@ d.addEventListener("submit", async e => {
         } catch (err) {
           let message = err.statusText || "Ocurrió un error"
           $form.insertAdjacentHTML("afterend", `<p><b>Error ${err.status}: ${message}</b></p>`)
-        } } } } )
+        }}
+
+//A través del método PUT modificamos un  santo
+    else {
+        try {
+        let options = {
+        method: "PUT",
+        headers: { "Content-type": "application/json; charset=utf-8" },
+        body: JSON.stringify({
+            nombre: e.target.name.value,
+            constelacion: e.target.constellation.value
+        })}
+
+        res = await fetch(`http://localhost:3000/santos/${e.target.id.value}`, options)
+        json = await res.json()
+  
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+        location.reload()
+
+        } catch (err) {
+            let message = err.statusText || "Ocurrió un error";
+            $form.insertAdjacentHTML("afterend", `<p><b>Error ${err.status}: ${message}</b></p>`)
+        }}}
+    })
+
+//Creamos el evento click para editar
+d.addEventListener("click", async e => {
+        if (e.target.matches(".edit")) {
+        if ($title) { $title.textContent = "Editar Santo" }
+        $form.name.value = e.target.dataset.name;
+        $form.constellation.value = e.target.dataset.constellation;
+        $form.id.value = e.target.dataset.id;
+        }})
