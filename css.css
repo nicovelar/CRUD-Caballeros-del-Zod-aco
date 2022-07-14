@@ -1,4 +1,33 @@
+html {
+    background-image: url(img/Background.jpg);
+    background-position: absolute;
+    background-position-y: 585px;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Hack, monospace;
+  }
+
 .image {
-    width: 320px;
-    height: 320px;
+    width: 640px;
+    height: 360px;
+}
+
+h1, h2{
+background-color: rgba(77, 22, 72, 0.87);
+color: white;
+border: 15px;
+}
+ 
+article {
+    background-color:rgba(77, 22, 72, 0.87);
+}
+
+th, td{
+    color: white;
 }

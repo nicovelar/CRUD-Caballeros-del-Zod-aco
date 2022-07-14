@@ -2,7 +2,7 @@
 const d = document
 $table = d.querySelector(".crud-table")
 $form = d.querySelector(".crud-form")
-$title = d.querySelector("crud.title")
+$title = d.querySelector(".crud-title")
 $template = d.getElementById("crud-template").content
 $fragment = d.createDocumentFragment()
 
@@ -17,11 +17,14 @@ const getAll = async () => {
       json.forEach(el => {
         $template.querySelector(".name").textContent = el.nombre
         $template.querySelector(".constellation").textContent = el.constelacion
+        $template.querySelector(".image").src = el.img
         $template.querySelector(".edit").dataset.id = el.id
         $template.querySelector(".edit").dataset.name = el.nombre
         $template.querySelector(".edit").dataset.constellation = el.constelacion
+        $template.querySelector(".edit").dataset.image = el.img
         $template.querySelector(".delete").dataset.id = el.id
-        $template.querySelector(".image").src = el.img
+       
+
 
         let $clone = d.importNode($template, true)
         $fragment.appendChild($clone)
@@ -49,9 +52,10 @@ d.addEventListener("submit", async e => {
         headers: { "Content-type": "application/json; charset=utf-8" },
         body: JSON.stringify({
             nombre: e.target.name.value,
-            constelacion: e.target.constellation.value 
+            constelacion: e.target.constellation.value,
+            img: e.target.image.value
         })}
-
+        
         res = await fetch("http://localhost:3000/santos", options)
         json = await res.json()
 
@@ -71,7 +75,8 @@ d.addEventListener("submit", async e => {
         headers: { "Content-type": "application/json; charset=utf-8" },
         body: JSON.stringify({
             nombre: e.target.name.value,
-            constelacion: e.target.constellation.value
+            constelacion: e.target.constellation.value,
+            img: e.target.image.src
         })}
 
         res = await fetch(`http://localhost:3000/santos/${e.target.id.value}`, options)
@@ -81,7 +86,7 @@ d.addEventListener("submit", async e => {
         location.reload()
 
         } catch (err) {
-            let message = err.statusText || "Ocurrió un error";
+            let message = err.statusText || "Ocurrió un error"
             $form.insertAdjacentHTML("afterend", `<p><b>Error ${err.status}: ${message}</b></p>`)
         }}}
     })
@@ -91,15 +96,16 @@ d.addEventListener("click", async e => {
 
 //Si el evento click coincide con editar, se editar
 if (e.target.matches(".edit")) {
-    if ($title) { $title.textContent = "Editar Santo" }
-    $form.name.value = e.target.dataset.name;
-    $form.constellation.value = e.target.dataset.constellation;
-    $form.id.value = e.target.dataset.id;
+    $title.textContent = "Editar Santo" 
+    $form.name.value = e.target.dataset.name
+    $form.constellation.value = e.target.dataset.constellation
+    $form.id.value = e.target.dataset.id 
+    $form.image.value = e.target.dataset.image
     }
 
 //Si el evento click coincide con eliminar, se elimina
 if (e.target.matches(".delete")) {
-    let isDelete = confirm(`¿Estás seguro de eliminar el id ${e.target.dataset.id}?`);
+    let isDelete = confirm(`¿Estás seguro de eliminar el id ${e.target.dataset.id}?`)
     if (isDelete) {
         try {
         let options = {
@@ -111,9 +117,9 @@ if (e.target.matches(".delete")) {
         json = await res.json()
     
         if (!res.ok) throw { status: res.status, statusText: res.statusText }
-        location.reload();
+        location.reload()
         } catch (err) {
-            let message = err.statusText || "Ocurrió un error";
+            let message = err.statusText || "Ocurrió un error"
             alert(`Error ${err.status}: ${message}`)
         }}}
     })

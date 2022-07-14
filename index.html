@@ -8,7 +8,7 @@
     <title>CRUD</title>
 </head>
 <body>
-<h1>CRUD de los caballeros del Zodíaco</h1>
+<img src="img/TitleScreen.jpg"> <br> <br>
 
 <!-- Sección de crear o modificar -->
 <article>
@@ -16,14 +16,14 @@
 <form class="crud-form">
     <input type="text" name="name" placeholder="Nombre" required> <br>
     <input type="text" name="constellation" placeholder="Constelación" required> <br>
+    <input type="text" name="image" placeholder="URL" required> <br>
     <input type="submit" value="Enviar">
     <input type="hidden" name="id">
 </form>
-</article>
+</article> <br> <br>
 
 <!-- Sección donde se ven los santos -->
 <article>
-    <h2>Ver Santos</h2>
     <table class="crud-table">
       <thead>
         <tr>
@@ -42,11 +42,12 @@
     <tr>
       <td class="name"></td>
       <td class="constellation"></td>
+      <img class="image"></img> <br> <br> <br>
       <td>
         <button class="edit">Editar</button>
         <button class="delete">Eliminar</button>
       </td>
-      <img class="image"></img> <br> <br> <br>
+      
     </tr>
   </template>
 </body>
