@@ -21,6 +21,7 @@ const getAll = async () => {
         $template.querySelector(".edit").dataset.name = el.nombre
         $template.querySelector(".edit").dataset.constellation = el.constelacion
         $template.querySelector(".delete").dataset.id = el.id
+        $template.querySelector(".image").src = el.img
 
         let $clone = d.importNode($template, true)
         $fragment.appendChild($clone)

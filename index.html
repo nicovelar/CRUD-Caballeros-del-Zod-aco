@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
     <title>CRUD</title>
 </head>
 <body>
@@ -26,14 +27,15 @@
     <table class="crud-table">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Constelación</th>
-          <th>Acciones</th>
+        <th>Nombre</th>
+        <th>Constelación</th>
+        <th>Acciones</th>
         </tr>
       </thead>
       <tbody></tbody>
     </table>
 </article>
+
 
 <!-- Acciones para Editar o Eliminar -->
 <template id="crud-template">
@@ -44,6 +46,7 @@
         <button class="edit">Editar</button>
         <button class="delete">Eliminar</button>
       </td>
+      <img class="image"></img> <br> <br> <br>
     </tr>
   </template>
 </body>

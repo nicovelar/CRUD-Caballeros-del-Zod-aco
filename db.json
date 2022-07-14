@@ -3,62 +3,74 @@
     {
       "id": 1,
       "nombre": "Seiya",
-      "constelacion": "Pegaso"
+      "constelacion": "Pegaso",
+      "img":"img/Seiya.jpg"
     },
     {
       "id": 2,
       "nombre": "Shiryu",
-      "constelacion": "Dragón"
+      "constelacion": "Dragón",
+      "img":"img/Shiryu.jpg"
     },
     {
       "id": 3,
       "nombre": "Hyoga",
-      "constelacion": "Cisne"
+      "constelacion": "Cisne",
+      "img":"img/Hyoga.jpg"
     },
     {
       "id": 4,
       "nombre": "Shun",
-      "constelacion": "Andrómeda"
+      "constelacion": "Andrómeda",
+      "img":"img/Shun.jpg"
     },
     {
       "id": 5,
       "nombre": "Ikki",
-      "constelacion": "Fénix"
+      "constelacion": "Fénix",
+      "img":"img/Ikki.jpg"
     },
     {
       "nombre": "Mü",
       "constelacion": "Aries",
-      "id": 6
+      "id": 6,
+      "img":"img/Mu.jpg"
     },
     {
       "nombre": "Aldebaran",
       "constelacion": "Tauro",
-      "id": 7
+      "id": 7,
+      "img":"img/Aldebaran.jpg"
     },
     {
       "nombre": "Saga",
       "constelacion": "Geminis",
-      "id": 8
+      "id": 8,
+      "img":"img/Saga.jpg"
     },
     {
       "nombre": "Máscara de Muerte",
       "constelacion": "Cancer",
-      "id": 9
+      "id": 9,
+      "img":"img/MascaraDeMuerte.jpg"
     },
     {
       "nombre": "Aioria",
       "constelacion": "Leo",
-      "id": 10
+      "id": 10,
+      "img":"img/Aioria.jpg"
     },
     {
       "nombre": "Shaka",
       "constelacion": "Virgo",
-      "id": 11
+      "id": 11,
+      "img":"img/Shaka.jpg"
     },
     {
       "nombre": "Dohko",
       "constelacion": "Libra",
-      "id": 12
+      "id": 12,
+      "img":"img/Dohko.jpg"
     }
   ],
   "dioses": [
