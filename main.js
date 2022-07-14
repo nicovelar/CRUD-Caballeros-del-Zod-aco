@@ -85,11 +85,34 @@ d.addEventListener("submit", async e => {
         }}}
     })
 
-//Creamos el evento click para editar
+
 d.addEventListener("click", async e => {
-        if (e.target.matches(".edit")) {
-        if ($title) { $title.textContent = "Editar Santo" }
-        $form.name.value = e.target.dataset.name;
-        $form.constellation.value = e.target.dataset.constellation;
-        $form.id.value = e.target.dataset.id;
-        }})
+
+//Si el evento click coincide con editar, se editar
+if (e.target.matches(".edit")) {
+    if ($title) { $title.textContent = "Editar Santo" }
+    $form.name.value = e.target.dataset.name;
+    $form.constellation.value = e.target.dataset.constellation;
+    $form.id.value = e.target.dataset.id;
+    }
+
+//Si el evento click coincide con eliminar, se elimina
+if (e.target.matches(".delete")) {
+    let isDelete = confirm(`¿Estás seguro de eliminar el id ${e.target.dataset.id}?`);
+    if (isDelete) {
+        try {
+        let options = {
+        method: "DELETE",
+        headers: { "Content-type": "application/json; charset=utf-8" }
+        }
+        
+        res = await fetch(`http://localhost:3000/santos/${e.target.dataset.id}`, options)
+        json = await res.json()
+    
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+        location.reload();
+        } catch (err) {
+            let message = err.statusText || "Ocurrió un error";
+            alert(`Error ${err.status}: ${message}`)
+        }}}
+    })
