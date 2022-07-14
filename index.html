@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+</head>
+<body>
+<h1>CRUD de los caballeros del Zodíaco</h1>
+
+<!-- Sección de crear o modificar -->
+<article>
+<h2 class="crud-title" >Agregar Santo</h2>
+<form class="crud-form">
+    <input type="text" name="name" placeholder="Nombre" required> <br>
+    <input type="text" name="constellation" placeholder="Constelación" required> <br>
+    <input tpye="submit" value="Enviar">
+    <input type="hidden" name="id">
+</form>
+</article>
+
+<!-- Sección donde se ven los santos -->
+<article>
+    <h2>Ver Santos</h2>
+    <table class="crud-table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Constelación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+</article>
+
+<!-- Acciones para Editar o Eliminar -->
+<template id="crud-template">
+    <tr>
+      <td class="name"></td>
+      <td class="constellation"></td>
+      <td>
+        <button class="edit">Editar</button>
+        <button class="delete">Eliminar</button>
+      </td>
+    </tr>
+  </template>
+</body>
+<script src="main.js"></script>
+</html>
